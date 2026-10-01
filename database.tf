@@ -26,7 +26,7 @@ resource "snowflake_file_format" "file_format" {
   format_type = "JSON"
 }
 
-resource "snowflake_storage_integration_aws" "minimal" {
+resource "snowflake_storage_integration_aws" "aws_integration" {
   name                      = "aws_integration"
   enabled                   = true
   storage_provider          = "S3"
@@ -40,5 +40,5 @@ resource "snowflake_stage" "bronze_stage" {
   database    = snowflake_database.kings_county_ledger_DB.name
   schema      = snowflake_schema.bronze.name
   file_format = "FORMAT_NAME = ${snowflake_file_format.file_format.name}"
-  storage_integration = snowflake_storage_integration_aws.minimal.name
+  storage_integration = snowflake_storage_integration_aws.aws_integration.name
 }

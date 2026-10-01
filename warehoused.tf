@@ -1,4 +1,4 @@
-resource "snowflake_warehouse" "test_warehouse" {
+resource "snowflake_warehouse" "warehouse" {
   name           = "WAREHOUSE"
   warehouse_type = "STANDARD"
   warehouse_size = "SMALL"
